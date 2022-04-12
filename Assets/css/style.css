@@ -1,3 +1,16 @@
-.parallax-container {
-    height: 600px;
+body {
+    background-color: darkslategray;
+}
+
+#title {
+    color: rgb(146, 187, 223);
+    background-color: brown;
+}
+
+#index-banner {
+    height: 500px;
+}
+
+#banner-img {
+    height: 150px;
 }
