@@ -3,8 +3,10 @@ body {
 }
 
 #title {
-    color: rgb(146, 187, 223);
-    background-color: brown;
+    font-family: 'Babylonica', cursive;
+    color: darkturquoise;
+    font-weight: bolder;
+    font-size: 100px;
 }
 
 #index-banner {
