@@ -1,1 +1,4 @@
-var butts = 'sdlfkj'
+$(document).ready(function(){
+  $('select').formSelect();
+});
+
