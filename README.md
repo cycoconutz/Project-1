@@ -17,8 +17,3 @@ WHEN I view select a sport that I wish to view
 THEN I am presented with the schedules of all upcoming games
 
 ```
-<<<<<<< HEAD
-=======
-
-test merge stuff
->>>>>>> main
