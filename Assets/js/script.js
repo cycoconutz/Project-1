@@ -12,6 +12,41 @@ var sportsFormSubmitHandler = function (event) {
   sports(drink);
 };
 
+var displaycocktails = function (name, type)
+{
+  if (name==="") { var cocktailApi = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + type;
+  console.log(cocktailApi)
+  }
+
+  if (type==="Search By Liqour") {var cocktailApi = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?s=' + name;
+  console.log(cocktailApi);
+  }
+  fetch(cocktailApi).then(function (response) {
+    if (response.ok) {
+      console.log(response);
+      response.json().then(function (data) {
+        console.log(data);
+      });
+    } else {
+      alert('Error: ' + response.statusText);
+    }
+  })
+  
+};
+
+$('#submit-form').on('click', function(event) {
+  event.preventDefault();
+  var text =$('#username').val().trim();
+  var liqour =$('#typeliq option:selected').text()
+displaycocktails(text, liqour);
+})
+
+
+
+
+
+
+
 //Sports API call
 var sports = function (selectedSport) {
   if (selectedSport === 'baseball-btn') {
