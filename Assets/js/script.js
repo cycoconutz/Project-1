@@ -9,26 +9,31 @@ var sportsFormSubmitHandler = function (event) {
 };
 
 //Sports API call
-var sports = function (sports) {
-  var sportsApiUrl = 'https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4424&s=2022'
-
-  console.log(sportsApiUrl)
+var sports = function (selectedSport) {
+  if (selectedSport === 'baseball-btn') {
+    var sportsApiUrl = 'https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4424&s=2022'
+  }
+  if (selectedSport === 'football-btn') {
+    var sportsApiUrl = 'https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4391&s=2021'
+  }
+  if (selectedSport === 'soccer-btn') {
+    var sportsApiUrl = 'https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4328&s=2021-2022'
+  }
+  if (selectedSport === 'basketball-btn') {
+    var sportsApiUrl = 'https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4387&s=2021-2022'
+  }
 
   fetch(sportsApiUrl).then(function (response) {
-    if (response.ok) {
-      console.log(response);
-      response.json().then(function (data) {
-        console.log(data);
-      });
-    } else {
-      alert('Error: ' + response.statusText);
-    }
+    response.json().then(function (data) {
+      console.log(data);
+    });
   })
 };
 
 
 sportsButtonsEl.addEventListener('click', function (event) {
-  console.log(event.target.id)
+  var selectedSport = event.target.id
+  sports(selectedSport);
 });
 
 
