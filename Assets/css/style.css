@@ -21,3 +21,13 @@ body {
     background-color:darkslategray
 }
 
+#topic {
+    border-style: solid;
+    border-width: 1px;
+    flex: 1 0;
+    text-align: center;
+    color:bisque;
+    font-size: 75px;
+    font-weight: bold;
+}
+
