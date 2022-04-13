@@ -18,16 +18,15 @@ body {
 }
 
 .foot {
-    background-color:darkslategray
+    background-color: darkslategray
 }
 
-#topic {
+.topic {
     border-style: solid;
     border-width: 1px;
     flex: 1 0;
     text-align: center;
-    color:bisque;
+    color: bisque;
     font-size: 75px;
     font-weight: bold;
 }
-
