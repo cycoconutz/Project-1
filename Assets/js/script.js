@@ -1,4 +1,8 @@
 var sportsButtonsEl = document.querySelector('#sports-buttons');
+var teamsEl = document.querySelector('#teams');
+var dateEl = document.querySelector('#date');
+var timeEl = document.querySelector('#time');
+
 
 //Button listeners for sports API call
 var sportsFormSubmitHandler = function (event) {
@@ -26,9 +30,36 @@ var sports = function (selectedSport) {
   fetch(sportsApiUrl).then(function (response) {
     response.json().then(function (data) {
       console.log(data);
+      populateSchedule(data);
     });
   })
+
 };
+
+function populateSchedule(data) {
+  teamsEl.innerHTML = "";
+  timeEl.innerHTML = "";
+  dateEl.innerHTML = "";
+
+  for (i = 99; i >= 90; i--) {
+    var teams = data.events[i].strEventAlternate
+    var date = data.events[i].dateEvent
+    var time = data.events[i].strTime
+    console.log(teams)
+    console.log(date)
+    console.log(time)
+    var teamsChild = document.createElement('h5')
+    var timeChild = document.createElement('h5')
+    var dateChild = document.createElement('h5')
+    teamsChild.textContent = teams
+    teamsEl.appendChild(teamsChild);
+    timeChild.textContent = time
+    timeEl.appendChild(timeChild);
+    dateChild.textContent = date
+    dateEl.appendChild(dateChild);
+  };
+
+}
 
 
 sportsButtonsEl.addEventListener('click', function (event) {
