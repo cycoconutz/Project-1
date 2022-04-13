@@ -45,7 +45,7 @@
                 <option value="5">Scotch</option>
                 <option value="6">Tequila</option>
             </select>
-            <input name="username" id="username" type="text" autofocus="true" class="form-input"
+            <input name="username" id="search-form" type="text" autofocus="true" class="form-input"
                 placeholder="Or enter a drink name" />
             <button type="submit" class="btn" id="submit-form">Search</button>
         </div>
@@ -70,10 +70,17 @@
     <!-- Schedule Div 2/3 -->
     <div class="col s12 row">
         <div class="col s12 row">
-            <l1><a class="waves-effect waves-light btn"><i class="material-icons right">🏈</i>Football</a></l1>
-            <l1><a class="waves-effect waves-light btn"><i class="material-icons right">⚽</i>Soccer</a></l1>
-            <l1><a class="waves-effect waves-light btn"><i class="material-icons right">🏀</i>Basketball</a></l1>
-            <l1><a class="waves-effect waves-light btn"><i class="material-icons right">⚾</i>Baseball</a></l1>
+            <div id="sports-buttons">
+                <l1><a class="waves-effect waves-light btn" id='football-btn'><i
+                            class="material-icons right">🏈</i>Football</a></l1>
+                <l1><a class="waves-effect waves-light btn" id='soccer-btn'><i
+                            class="material-icons right">⚽</i>Soccer</a>
+                </l1>
+                <l1><a class="waves-effect waves-light btn" id='basketball-btn'><i
+                            class="material-icons right">🏀</i>Basketball</a></l1>
+                <l1><a class="waves-effect waves-light btn" id='baseball-btn'><i
+                            class="material-icons right">⚾</i>Baseball</a></l1>
+            </div>
         </div>
         <div class="input-field col s2">
             <h1>Filter Teams</h1>
