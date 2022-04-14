@@ -12,6 +12,11 @@ body {
 }
 .btn{
     background-color:rgb(26, 24, 24);
+    color: rgba(207, 179, 88, 0.87)
+    
+}
+.form-input{
+
 }
 
 #index-banner {
