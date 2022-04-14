@@ -4,24 +4,38 @@ var dateEl = document.querySelector("#date");
 var timeEl = document.querySelector("#time");
 var recipes = document.getElementsByClassName("carousel-item");
 
+//Sports Button Identifier
+sportsButtonsEl.addEventListener("click", function (event) {
+  var selectedSport = event.target.id;
+  sports(selectedSport);
+});
+
 //Button listeners for sports API call
 var sportsFormSubmitHandler = function (event) {
   event.preventDefault();
-
   console.log();
-  sports(drink);
+  sports(selectedSport);
 };
 
+//Cocktail Event Listener
+$("#submit-form").on("click", function (event) {
+  event.preventDefault();
+  var text = $("#username").val();
+  var liqour = $("#typeliq option:selected").text();
+  getcocktails(text, liqour);
+});
+
+//Cocktail API Call
 var getcocktails = function (name, type) {
   if (name === "") {
     var cocktailApi =
-      "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + type;
+      "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + type
     console.log(cocktailApi);
   }
 
   if (type === "Select a Liquor") {
     var cocktailApi =
-      "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name;
+      "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name
     console.log(cocktailApi);
   }
 
@@ -32,12 +46,13 @@ var getcocktails = function (name, type) {
   });
 };
 
+//Cocktail HTML Generator
 var populatecocktails = function (data1) {
   var drinksArray = data1.drinks;
   var randomrecipe = Math.floor(Math.random() * drinksArray.length);
   // for (var i = 0; i > recipes.length; i++) {
-    
-    recipes[0].src = drinksArray[0].strDrinkThumb;
+
+  recipes[0].src = drinksArray[0].strDrinkThumb;
 
   //  recipes[i].src= drinksArray[randomrecipe].strDrinkThumb;
 
@@ -45,12 +60,7 @@ var populatecocktails = function (data1) {
   // }
 };
 
-$("#submit-form").on("click", function (event) {
-  event.preventDefault();
-  var text = $("#username").val().trim();
-  var liqour = $("#typeliq option:selected").text();
-  getcocktails(text, liqour);
-});
+
 
 //Sports API call
 var sports = function (selectedSport) {
@@ -79,6 +89,7 @@ var sports = function (selectedSport) {
   });
 };
 
+//Sports HTML Generator
 function populateSchedule(data) {
   teamsEl.innerHTML = "";
   timeEl.innerHTML = "";
@@ -103,10 +114,7 @@ function populateSchedule(data) {
   }
 }
 
-sportsButtonsEl.addEventListener("click", function (event) {
-  var selectedSport = event.target.id;
-  sports(selectedSport);
-});
+
 
 //Initial functions on page load
 function init() {
