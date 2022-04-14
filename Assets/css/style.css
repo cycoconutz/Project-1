@@ -51,3 +51,13 @@ h1 {
     text-align: center;
     color: black;
 }
+
+.waves-effect.waves-light .waves-ripple {
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover {
+    background-color: #ffffff;
+}
