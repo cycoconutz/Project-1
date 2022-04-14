@@ -12,6 +12,13 @@ var sportsFormSubmitHandler = function (event) {
   sports(drink);
 };
 
+$("#submit-form").on("click", function (event) {
+  event.preventDefault();
+  var text = $("#search-form").val().trim();
+  var liqour = $("#typeliq option:selected").text();
+  getcocktails(text, liqour);
+});
+
 var getcocktails = function (name, type) {
   if (name === "") {
     var cocktailApi =
@@ -27,6 +34,7 @@ var getcocktails = function (name, type) {
 
   fetch(cocktailApi).then(function (response) {
     response.json().then(function (data) {
+      console.log(data);
       populatecocktails(data);
     });
   });
@@ -45,12 +53,7 @@ var populatecocktails = function (data1) {
   // }
 };
 
-$("#submit-form").on("click", function (event) {
-  event.preventDefault();
-  var text = $("#username").val().trim();
-  var liqour = $("#typeliq option:selected").text();
-  getcocktails(text, liqour);
-});
+
 
 //Sports API call
 var sports = function (selectedSport) {
