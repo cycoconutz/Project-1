@@ -9,9 +9,6 @@ body {
     font-weight: bolder;
     font-size: 150px;
 }
-.col s12 row {
-    color:black;
-}
 
 #index-banner {
     height: 500px;
@@ -33,4 +30,14 @@ body {
     color: bisque;
     font-size: 75px;
     font-weight: bold;
+}
+
+.border-bot {
+    border-bottom: 1px solid bisque;
+}
+
+.list-el {
+    font-size: 20px;
+    text-align: center;
+    color: bisque;
 }

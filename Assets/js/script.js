@@ -2,52 +2,69 @@ var sportsButtonsEl = document.querySelector("#sports-buttons");
 var teamsEl = document.querySelector("#teams");
 var dateEl = document.querySelector("#date");
 var timeEl = document.querySelector("#time");
-var recipes = document.getElementsByClassName("carousel-item");
+var recipes = document.getElementsByClassName("car");
+
+
+//Sports Button Identifier
+sportsButtonsEl.addEventListener("click", function (event) {
+  var selectedSport = event.target.id;
+  sports(selectedSport);
+});
 
 //Button listeners for sports API call
 var sportsFormSubmitHandler = function (event) {
   event.preventDefault();
-
   console.log();
-  sports(drink);
+  sports(selectedSport);
 };
 
+//Cocktail Event Listener
+$("#submit-form").on("click", function (event) {
+  event.preventDefault();
+  var text = $("#search-form").val();
+  var liqour = $("#typeliq option:selected").text();
+  getcocktails(text, liqour);
+});
+
+//Cocktail API Call
 var getcocktails = function (name, type) {
   if (name === "") {
     var cocktailApi =
-      "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + type;
+      "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + type
     console.log(cocktailApi);
   }
 
   if (type === "Select a Liquor") {
     var cocktailApi =
-      "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name;
+      "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name
     console.log(cocktailApi);
   }
 
   fetch(cocktailApi).then(function (response) {
     response.json().then(function (data) {
+      console.log(data)
       populatecocktails(data);
     });
   });
 };
 
+//Cocktail HTML Generator
 var populatecocktails = function (data1) {
   var drinksArray = data1.drinks;
+  console.log(drinksArray[0].strDrinkThumb)
+
   var randomrecipe = Math.floor(Math.random() * drinksArray.length);
-  // for (var i = 0; i > recipes.length; i++) {
-    
-    recipes[0].src = drinksArray[0].strDrinkThumb;
 
-  //  recipes[i].src= drinksArray[randomrecipe].strDrinkThumb;
-
-  //   console.log(randomrecipe);
-  // }
+  for (var i = 0; i > recipes.length; i++) {
+    // recipes[0].src = drinksArray[0].strDrinkThumb;
+    recipes[i].src = drinksArray[i].strDrinkThumb;
+    //   console.log(randomrecipe);
+  }
 };
 
 $("#submit-form").on("click", function (event) {
   event.preventDefault();
-  var text = $("#username").val().trim();
+  var text = $("#search-form").val().trim();
   var liqour = $("#typeliq option:selected").text();
   getcocktails(text, liqour);
 });
@@ -79,10 +96,12 @@ var sports = function (selectedSport) {
   });
 };
 
+//Sports HTML Generator
 function populateSchedule(data) {
   teamsEl.innerHTML = "";
   timeEl.innerHTML = "";
   dateEl.innerHTML = "";
+
 
   for (i = 99; i >= 90; i--) {
     var teams = data.events[i].strEventAlternate;
@@ -91,29 +110,32 @@ function populateSchedule(data) {
     console.log(teams);
     console.log(date);
     console.log(time);
-    var teamsChild = document.createElement("h5");
-    var timeChild = document.createElement("h5");
-    var dateChild = document.createElement("h5");
+    var teamsChild = document.createElement("li");
+    var timeChild = document.createElement("li");
+    var dateChild = document.createElement("li");
     teamsChild.textContent = teams;
+    teamsChild.classList = "border-bot list-el"
     teamsEl.appendChild(teamsChild);
     timeChild.textContent = time;
+    timeChild.classList = "border-bot list-el"
     timeEl.appendChild(timeChild);
     dateChild.textContent = date;
+    dateChild.classList = "border-bot list-el"
     dateEl.appendChild(dateChild);
   }
 }
 
-sportsButtonsEl.addEventListener("click", function (event) {
-  var selectedSport = event.target.id;
-  sports(selectedSport);
-});
+
 
 //Initial functions on page load
 function init() {
   $(document).ready(function () {
     $("select").formSelect();
     $(".parallax").parallax();
-    $(".carousel").carousel();
+    $('.carousel.carousel-slider').carousel({
+      fullWidth: true,
+      indicators: true
+    });
   });
 }
 init();
