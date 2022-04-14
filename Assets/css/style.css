@@ -10,8 +10,9 @@ body {
     font-size: 150px;
     text-shadow: rgb(10, 10, 10) 3px 3px 3px;
 }
-.btn{
-    background-color:rgb(26, 24, 24);
+
+.btn {
+    background-color: rgb(26, 24, 24);
 }
 
 #index-banner {
@@ -31,17 +32,17 @@ body {
     border-width: 1px;
     flex: 1 0;
     text-align: center;
-    color: bisque;
+    color: black;
     font-size: 75px;
     font-weight: bold;
 }
 
 .border-bot {
-    border-bottom: 1px solid bisque;
+    border-bottom: 1px solid black;
 }
 
 .list-el {
     font-size: 20px;
     text-align: center;
-    color: bisque;
+    color: black;
 }
