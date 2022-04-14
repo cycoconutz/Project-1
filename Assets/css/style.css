@@ -1,12 +1,16 @@
 body {
-    background-color: darkslategray;
+    background-color: rgb(233, 218, 155);
+    font-family: Impact, sans-serif;
 }
 
 #title {
     font-family: 'Babylonica', cursive;
-    color: darkturquoise;
+    color: rgba(207, 179, 88, 0.87);
     font-weight: bolder;
-    font-size: 130px;
+    font-size: 150px;
+}
+.col s12 row {
+    color:black;
 }
 
 #index-banner {
@@ -17,7 +21,8 @@ body {
     height: 150px;
 }
 
-.foot {
-    background-color:darkslategray
+#foot {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color:rgba(103, 104, 122, 0.904)
+    
 }
-
