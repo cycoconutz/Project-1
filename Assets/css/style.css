@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(233, 218, 155);
+    background-color: bisque;
     font-family: Impact, sans-serif;
 }
 
@@ -8,9 +8,13 @@ body {
     color: rgba(207, 179, 88, 0.87);
     font-weight: bolder;
     font-size: 150px;
+    text-shadow: rgb(10, 10, 10) 3px 3px 3px;
 }
-.col s12 row {
-    color:black;
+.btn{
+    background-color:rgb(26, 24, 24);
+}
+#select-options{
+    color: red;
 }
 
 #index-banner {
@@ -21,8 +25,8 @@ body {
     height: 150px;
 }
 
-.foot {
-    background-color: darkslategray
+.page-footer {
+    background-color: rgb(185, 41, 41);
 }
 
 .topic {
