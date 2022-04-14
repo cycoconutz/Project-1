@@ -3,6 +3,11 @@ body {
     font-family: Impact, sans-serif;
 }
 
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
 #title {
     font-family: 'Babylonica', cursive;
     color: rgba(207, 179, 88, 0.87);
