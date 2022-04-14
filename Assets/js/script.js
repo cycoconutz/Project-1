@@ -102,6 +102,7 @@ function populateSchedule(data) {
   timeEl.innerHTML = "";
   dateEl.innerHTML = "";
 
+
   for (i = 99; i >= 90; i--) {
     var teams = data.events[i].strEventAlternate;
     var date = data.events[i].dateEvent;
@@ -109,14 +110,17 @@ function populateSchedule(data) {
     console.log(teams);
     console.log(date);
     console.log(time);
-    var teamsChild = document.createElement("h5");
-    var timeChild = document.createElement("h5");
-    var dateChild = document.createElement("h5");
+    var teamsChild = document.createElement("li");
+    var timeChild = document.createElement("li");
+    var dateChild = document.createElement("li");
     teamsChild.textContent = teams;
+    teamsChild.classList = "border-bot list-el"
     teamsEl.appendChild(teamsChild);
     timeChild.textContent = time;
+    timeChild.classList = "border-bot list-el"
     timeEl.appendChild(timeChild);
     dateChild.textContent = date;
+    dateChild.classList = "border-bot list-el"
     dateEl.appendChild(dateChild);
   }
 }
