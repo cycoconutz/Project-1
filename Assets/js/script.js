@@ -2,7 +2,8 @@ var sportsButtonsEl = document.querySelector("#sports-buttons");
 var teamsEl = document.querySelector("#teams");
 var dateEl = document.querySelector("#date");
 var timeEl = document.querySelector("#time");
-var recipes = document.getElementsByClassName("carousel-item");
+var recipes = document.getElementsByClassName("car");
+
 
 //Sports Button Identifier
 sportsButtonsEl.addEventListener("click", function (event) {
@@ -41,6 +42,7 @@ var getcocktails = function (name, type) {
 
   fetch(cocktailApi).then(function (response) {
     response.json().then(function (data) {
+      console.log(data)
       populatecocktails(data);
     });
   });
@@ -49,15 +51,15 @@ var getcocktails = function (name, type) {
 //Cocktail HTML Generator
 var populatecocktails = function (data1) {
   var drinksArray = data1.drinks;
+  console.log(drinksArray[0].strDrinkThumb)
+
   var randomrecipe = Math.floor(Math.random() * drinksArray.length);
-  // for (var i = 0; i > recipes.length; i++) {
 
-  recipes[0].src = drinksArray[0].strDrinkThumb;
-
-  //  recipes[i].src= drinksArray[randomrecipe].strDrinkThumb;
-
-  //   console.log(randomrecipe);
-  // }
+  for (var i = 0; i > recipes.length; i++) {
+    // recipes[0].src = drinksArray[0].strDrinkThumb;
+    recipes[i].src = drinksArray[i].strDrinkThumb;
+    //   console.log(randomrecipe);
+  }
 };
 
 $("#submit-form").on("click", function (event) {
@@ -126,7 +128,10 @@ function init() {
   $(document).ready(function () {
     $("select").formSelect();
     $(".parallax").parallax();
-    $(".carousel").carousel();
+    $('.carousel.carousel-slider').carousel({
+      fullWidth: true,
+      indicators: true
+    });
   });
 }
 init();
