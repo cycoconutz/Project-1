@@ -61,3 +61,14 @@ h1 {
 .btn-small:hover {
     background-color: #ffffff;
 }
+
+#sports-buttons {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+}
+
+#sports-buttons a {
+    margin: 0 auto;
+    border: solid 1px whitesmoke;
+}
