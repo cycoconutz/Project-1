@@ -35,3 +35,13 @@ body {
     font-size: 75px;
     font-weight: bold;
 }
+
+.border-bot {
+    border-bottom: 1px solid bisque;
+}
+
+.list-el {
+    font-size: 20px;
+    text-align: center;
+    color: bisque;
+}
