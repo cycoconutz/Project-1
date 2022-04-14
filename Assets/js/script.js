@@ -36,8 +36,8 @@ var populatecocktails = function (data1) {
   var drinksArray = data1.drinks;
   var randomrecipe = Math.floor(Math.random() * drinksArray.length);
   // for (var i = 0; i > recipes.length; i++) {
-    
-    recipes[0].src = drinksArray[0].strDrinkThumb;
+
+  recipes[0].src = drinksArray[0].strDrinkThumb;
 
   //  recipes[i].src= drinksArray[randomrecipe].strDrinkThumb;
 
@@ -47,7 +47,7 @@ var populatecocktails = function (data1) {
 
 $("#submit-form").on("click", function (event) {
   event.preventDefault();
-  var text = $("#username").val().trim();
+  var text = $("#search-form").val().trim();
   var liqour = $("#typeliq option:selected").text();
   getcocktails(text, liqour);
 });
