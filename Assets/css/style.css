@@ -15,25 +15,20 @@ h1 {
     font-size: 140px;
     text-shadow: rgb(10, 10, 10) 4px 4px 4px;
 }
-<<<<<<< HEAD
-.btn{
-    background-color:rgb(26, 24, 24);
-    color: rgba(207, 179, 88, 0.87)
-    
-=======
 
 .btn {
     background-color: rgb(26, 24, 24);
->>>>>>> 6074ab643b4273a4f4ff10b3f3dd7c9afe73ece9
+    color: rgba(207, 179, 88, 0.87)
 }
+
 #typeliq {
-    color:black;
+    color: black;
     background-color: transparent;
 }
 
- .form-input {
-     color: black;
- }
+.form-input {
+    color: black;
+}
 
 #index-banner {
     height: 500px;
@@ -69,7 +64,6 @@ h1 {
 
 .waves-effect.waves-light .waves-ripple {
     background-color: rgba(0, 0, 0, 0.45);
-<<<<<<< HEAD
 }
 
 .btn:hover,
@@ -79,16 +73,14 @@ h1 {
 }
 
 #sports-buttons {
+    padding-top: 10px;
     display: flex;
     justify-content: space-between;
-    background-color: black;
 }
 
 #sports-buttons a {
     margin: 0 auto;
     border: solid 1px whitesmoke;
-=======
->>>>>>> 6074ab643b4273a4f4ff10b3f3dd7c9afe73ece9
 }
 
 .btn:hover,
@@ -116,10 +108,25 @@ h1 {
 .carouselInter {
     display: flex;
     height: 20em;
+    border-radius: 100px;
 
 }
 
-li {
+.drinkRecipe {
+    font-size: 20px;
+}
+
+.drinkName {
+    font-size: 36px;
+    background-color: rgb(26, 24, 24);
+    color: rgba(207, 179, 88, 0.87);
+    margin-left: 225px;
+    margin-right: 225px;
+    margin-top: 10px;
+}
+
+.ingredList {
     font-size: 16px;
+    columns: 2;
 
 }

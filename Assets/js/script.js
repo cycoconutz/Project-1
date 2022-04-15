@@ -72,19 +72,28 @@ var populateInstructions = function (drinksId, i) {
   fetch(url).then(function (response) {
     response.json().then(function (data) {
       console.log(data.drinks[0].strInstructions)
-      ingredients[i].textContent = data.drinks[0].strInstructions;
+      ingredients[i].textContent = data.drinks[0].strInstructions
       drinkname[i].textContent = data.drinks[0].strDrink;
-      drinkname[i].appendChild(ingredUl);
+      drinkname[i].insertAdjacentElement('afterend', ingredUl);
+      ingredUl.setAttribute('class', 'ingredList')
+      console.log(data)
 
       for (var j = 1; j <= 15; j++) {
         var ingredient = data.drinks[0]["strIngredient" + j]
+        var measure = data.drinks[0]["strMeasure" + j];
+        console.log(measure)
         console.log(ingredient)
-        if (ingredient !== null) {
+        if (ingredient && measure) {
+          var ingredList = document.createElement('li');
+          ingredList.textContent = ingredient + " " + measure;
+          ingredUl.appendChild(ingredList);
+        }
+        if (ingredient && !measure) {
           var ingredList = document.createElement('li');
           ingredList.textContent = ingredient;
           ingredUl.appendChild(ingredList);
-
         }
+
       }
     });
   });
