@@ -16,7 +16,6 @@ sportsButtonsEl.addEventListener("click", function (event) {
 //Button listeners for sports API call
 var sportsFormSubmitHandler = function (event) {
   event.preventDefault();
-  console.log();
   sports(selectedSport);
 };
 
@@ -33,18 +32,15 @@ var getcocktails = function (name, type) {
   if (name === "") {
     var cocktailApi =
       "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + type
-    console.log(cocktailApi);
   }
 
   if (type === "Select a Liquor") {
     var cocktailApi =
       "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name
-    console.log(cocktailApi);
   }
 
   fetch(cocktailApi).then(function (response) {
     response.json().then(function (data) {
-      console.log(data)
       populatecocktails(data);
     });
   });
@@ -54,7 +50,8 @@ var getcocktails = function (name, type) {
 var populatecocktails = function (data1) {
   var drinksArray = data1.drinks;
   console.log(drinksArray);
-  for (var i = 0; i <= 3; i++) {
+  for (var i = 0; i <= 2; i++) {
+    console.log(i)
     recipes[i].src = drinksArray[i].strDrinkThumb;
     var drinksId = drinksArray[i].idDrink
     populateInstructions(drinksId, i);
@@ -71,25 +68,21 @@ var populateInstructions = function (drinksId, i) {
   var url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinksId;
   fetch(url).then(function (response) {
     response.json().then(function (data) {
-      console.log(data.drinks[0].strInstructions)
       ingredients[i].textContent = data.drinks[0].strInstructions
       drinkname[i].textContent = data.drinks[0].strDrink;
       drinkname[i].insertAdjacentElement('afterend', ingredUl);
       ingredUl.setAttribute('class', 'ingredList')
-      console.log(data)
 
       for (var j = 1; j <= 15; j++) {
+        var ingredList = document.createElement('li');
         var ingredient = data.drinks[0]["strIngredient" + j]
         var measure = data.drinks[0]["strMeasure" + j];
-        console.log(measure)
-        console.log(ingredient)
+
         if (ingredient && measure) {
-          var ingredList = document.createElement('li');
           ingredList.textContent = ingredient + " " + measure;
           ingredUl.appendChild(ingredList);
         }
         if (ingredient && !measure) {
-          var ingredList = document.createElement('li');
           ingredList.textContent = ingredient;
           ingredUl.appendChild(ingredList);
         }
@@ -133,15 +126,16 @@ function populateSchedule(data) {
   dateEl.innerHTML = "";
 
   for (i = 99; i >= 90; i--) {
+    //Declares Teams/Date/Time
     var teams = data.events[i].strEventAlternate;
     var date = data.events[i].dateEvent;
     var time = data.events[i].strTime;
-    console.log(teams);
-    console.log(date);
-    console.log(time);
+    console.log(time)
+    //Creates Elements
     var teamsChild = document.createElement("h5");
     var timeChild = document.createElement("h5");
     var dateChild = document.createElement("h5");
+    //Fills textcontent and appends elements
     teamsChild.textContent = teams;
     teamsEl.appendChild(teamsChild);
     timeChild.textContent = time;
