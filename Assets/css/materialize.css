@@ -8762,13 +8762,13 @@ input[type=range]::-ms-thumb {
 }
 
 .carousel.carousel-slider .carousel-item h2 {
-  font-size: 24px;
+  /* font-size: 24px; */
   font-weight: 500;
   line-height: 32px;
 }
 
 .carousel.carousel-slider .carousel-item p {
-  font-size: 15px;
+  /* font-size: 15px; */
 }
 
 .carousel .carousel-item {

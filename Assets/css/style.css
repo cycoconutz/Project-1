@@ -15,15 +15,15 @@ h1 {
     font-size: 140px;
     text-shadow: rgb(10, 10, 10) 4px 4px 4px;
 }
-.btn{
-    background-color:rgb(26, 24, 24);
+
+.btn {
+    background-color: rgb(26, 24, 24);
     color: rgba(207, 179, 88, 0.87)
-    
 }
 
- .form-input {
-     color: black;
- }
+.form-input {
+    color: black;
+}
 
 #index-banner {
     height: 500px;
@@ -61,19 +61,53 @@ h1 {
     background-color: rgba(0, 0, 0, 0.45);
 }
 
+
 .btn:hover,
 .btn-large:hover,
 .btn-small:hover {
-    background-color: rgb(185, 41, 41);
+    background-color: #ffffff;
+}
+
+.sports-btn {
+    min-width: fit-content;
+    width: 450px;
+    padding-right: 10px;
 }
 
 #sports-buttons {
     display: flex;
     justify-content: space-between;
-    background-color: black;
 }
 
 #sports-buttons a {
     margin: 0 auto;
     border: solid 1px whitesmoke;
+}
+
+.carouselInter {
+    display: flex;
+    height: 20em;
+    border-radius: 100px;
+    padding-top: 10px;
+
+}
+
+.drinkRecipe {
+    font-size: 20px;
+}
+
+.drinkName {
+    font-size: 36px;
+    background-color: rgb(26, 24, 24);
+    color: rgba(207, 179, 88, 0.87);
+    margin-left: 225px;
+    margin-right: 225px;
+    margin-top: 10px;
+    border-radius: 50px;
+}
+
+.ingredList {
+    font-size: 16px;
+    columns: 2;
+
 }

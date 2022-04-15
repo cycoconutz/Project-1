@@ -2,9 +2,11 @@ var sportsButtonsEl = document.querySelector("#sports-buttons");
 var teamsEl = document.querySelector("#teams");
 var dateEl = document.querySelector("#date");
 var timeEl = document.querySelector("#time");
-var recipes = document.getElementsByClassName("car");
+var recipes = $('.carouselInter')
 
 
+
+console.log(recipes);
 //Sports Button Identifier
 sportsButtonsEl.addEventListener("click", function (event) {
   var selectedSport = event.target.id;
@@ -51,23 +53,51 @@ var getcocktails = function (name, type) {
 //Cocktail HTML Generator
 var populatecocktails = function (data1) {
   var drinksArray = data1.drinks;
-  console.log(drinksArray[0].strDrinkThumb)
-
-  var randomrecipe = Math.floor(Math.random() * drinksArray.length);
-
-  for (var i = 0; i > recipes.length; i++) {
-    // recipes[0].src = drinksArray[0].strDrinkThumb;
+  console.log(drinksArray);
+  for (var i = 0; i <= 3; i++) {
     recipes[i].src = drinksArray[i].strDrinkThumb;
-    //   console.log(randomrecipe);
+    var drinksId = drinksArray[i].idDrink
+    populateInstructions(drinksId, i);
   }
 };
 
-$("#submit-form").on("click", function (event) {
-  event.preventDefault();
-  var text = $("#search-form").val().trim();
-  var liqour = $("#typeliq option:selected").text();
-  getcocktails(text, liqour);
-});
+
+var populateInstructions = function (drinksId, i) {
+  var ingredients = $('.drinkRecipe')
+  var drinkname = $('.carousel h2');
+  var ingredUl = document.createElement('ul');
+
+
+  var url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinksId;
+  fetch(url).then(function (response) {
+    response.json().then(function (data) {
+      console.log(data.drinks[0].strInstructions)
+      ingredients[i].textContent = data.drinks[0].strInstructions
+      drinkname[i].textContent = data.drinks[0].strDrink;
+      drinkname[i].insertAdjacentElement('afterend', ingredUl);
+      ingredUl.setAttribute('class', 'ingredList')
+      console.log(data)
+
+      for (var j = 1; j <= 15; j++) {
+        var ingredient = data.drinks[0]["strIngredient" + j]
+        var measure = data.drinks[0]["strMeasure" + j];
+        console.log(measure)
+        console.log(ingredient)
+        if (ingredient && measure) {
+          var ingredList = document.createElement('li');
+          ingredList.textContent = ingredient + " " + measure;
+          ingredUl.appendChild(ingredList);
+        }
+        if (ingredient && !measure) {
+          var ingredList = document.createElement('li');
+          ingredList.textContent = ingredient;
+          ingredUl.appendChild(ingredList);
+        }
+
+      }
+    });
+  });
+}
 
 //Sports API call
 var sports = function (selectedSport) {
@@ -102,7 +132,6 @@ function populateSchedule(data) {
   timeEl.innerHTML = "";
   dateEl.innerHTML = "";
 
-
   for (i = 99; i >= 90; i--) {
     var teams = data.events[i].strEventAlternate;
     var date = data.events[i].dateEvent;
@@ -110,17 +139,14 @@ function populateSchedule(data) {
     console.log(teams);
     console.log(date);
     console.log(time);
-    var teamsChild = document.createElement("li");
-    var timeChild = document.createElement("li");
-    var dateChild = document.createElement("li");
+    var teamsChild = document.createElement("h5");
+    var timeChild = document.createElement("h5");
+    var dateChild = document.createElement("h5");
     teamsChild.textContent = teams;
-    teamsChild.classList = "border-bot list-el"
     teamsEl.appendChild(teamsChild);
     timeChild.textContent = time;
-    timeChild.classList = "border-bot list-el"
     timeEl.appendChild(timeChild);
     dateChild.textContent = date;
-    dateChild.classList = "border-bot list-el"
     dateEl.appendChild(dateChild);
   }
 }
