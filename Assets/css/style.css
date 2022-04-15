@@ -20,6 +20,10 @@ h1 {
     color: rgba(207, 179, 88, 0.87)
     
 }
+#typeliq {
+    color:black;
+    background-color: transparent;
+}
 
  .form-input {
      color: black;
