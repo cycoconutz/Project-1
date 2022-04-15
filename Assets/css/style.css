@@ -3,6 +3,11 @@ body {
     font-family: Impact, sans-serif;
 }
 
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
 #title {
     font-family: 'Babylonica', cursive;
     color: rgba(207, 179, 88, 0.87);
@@ -14,9 +19,6 @@ body {
     background-color:rgb(26, 24, 24);
     color: rgba(207, 179, 88, 0.87)
     
-}
-.form-input{
-
 }
 
 #index-banner {
@@ -36,17 +38,38 @@ body {
     border-width: 1px;
     flex: 1 0;
     text-align: center;
-    color: bisque;
+    color: black;
     font-size: 75px;
     font-weight: bold;
 }
 
 .border-bot {
-    border-bottom: 1px solid bisque;
+    border-bottom: 1px solid black;
 }
 
 .list-el {
     font-size: 20px;
     text-align: center;
-    color: bisque;
+    color: black;
+}
+
+.waves-effect.waves-light .waves-ripple {
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover {
+    background-color: #c45d5d;
+}
+
+#sports-buttons {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+}
+
+#sports-buttons a {
+    margin: 0 auto;
+    border: solid 1px whitesmoke;
 }
