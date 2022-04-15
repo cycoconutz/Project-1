@@ -12,13 +12,28 @@ h1 {
     font-family: 'Babylonica', cursive;
     color: rgba(207, 179, 88, 0.87);
     font-weight: bolder;
-    font-size: 150px;
-    text-shadow: rgb(10, 10, 10) 3px 3px 3px;
+    font-size: 140px;
+    text-shadow: rgb(10, 10, 10) 4px 4px 4px;
 }
+<<<<<<< HEAD
+.btn{
+    background-color:rgb(26, 24, 24);
+    color: rgba(207, 179, 88, 0.87)
+    
+=======
 
 .btn {
     background-color: rgb(26, 24, 24);
+>>>>>>> 6074ab643b4273a4f4ff10b3f3dd7c9afe73ece9
 }
+#typeliq {
+    color:black;
+    background-color: transparent;
+}
+
+ .form-input {
+     color: black;
+ }
 
 #index-banner {
     height: 500px;
@@ -54,6 +69,26 @@ h1 {
 
 .waves-effect.waves-light .waves-ripple {
     background-color: rgba(0, 0, 0, 0.45);
+<<<<<<< HEAD
+}
+
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover {
+    background-color: rgb(185, 41, 41);
+}
+
+#sports-buttons {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+}
+
+#sports-buttons a {
+    margin: 0 auto;
+    border: solid 1px whitesmoke;
+=======
+>>>>>>> 6074ab643b4273a4f4ff10b3f3dd7c9afe73ece9
 }
 
 .btn:hover,
