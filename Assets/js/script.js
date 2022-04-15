@@ -2,7 +2,7 @@ var sportsButtonsEl = document.querySelector("#sports-buttons");
 var teamsEl = document.querySelector("#teams");
 var dateEl = document.querySelector("#date");
 var timeEl = document.querySelector("#time");
-var recipes = $('.carouselInter img')
+var recipes = $('.carouselInter')
 
 
 
@@ -63,17 +63,28 @@ var populatecocktails = function (data1) {
 
 
 var populateInstructions = function (drinksId, i) {
-  var ingredients = $('.carouselInter p')
+  var ingredients = $('.drinkRecipe')
+  var drinkname = $('.carousel h2');
+  var ingredUl = document.createElement('ul');
+
 
   var url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinksId;
   fetch(url).then(function (response) {
     response.json().then(function (data) {
       console.log(data.drinks[0].strInstructions)
-      ingredients[i].textContent = data.drinks[0].strInstructions
+      ingredients[i].textContent = data.drinks[0].strInstructions;
+      drinkname[i].textContent = data.drinks[0].strDrink;
+      drinkname[i].appendChild(ingredUl);
 
       for (var j = 1; j <= 15; j++) {
         var ingredient = data.drinks[0]["strIngredient" + j]
         console.log(ingredient)
+        if (ingredient !== null) {
+          var ingredList = document.createElement('li');
+          ingredList.textContent = ingredient;
+          ingredUl.appendChild(ingredList);
+
+        }
       }
     });
   });

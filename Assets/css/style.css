@@ -80,9 +80,11 @@ h1 {
 
 .carouselInter {
     display: flex;
+    height: 20em;
+
 }
 
-.carouselInter img {
-    height: 20em;
+li {
+    font-size: 16px;
 
 }
