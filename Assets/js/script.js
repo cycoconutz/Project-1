@@ -2,8 +2,7 @@ var sportsButtonsEl = document.querySelector("#sports-buttons");
 var teamsEl = document.querySelector("#teams");
 var dateEl = document.querySelector("#date");
 var timeEl = document.querySelector("#time");
-var recipes = document.getElementsByClassName("car");
-
+var recipes = $('.carouselInter img')
 
 //Sports Button Identifier
 sportsButtonsEl.addEventListener("click", function (event) {
@@ -67,7 +66,31 @@ $("#submit-form").on("click", function (event) {
   var text = $("#search-form").val().trim();
   var liqour = $("#typeliq option:selected").text();
   getcocktails(text, liqour);
+  console.log(drinksArray);
+  for (var i = 0; i <= 3; i++) {
+    recipes[i].src = drinksArray[i].strDrinkThumb;
+    var drinksId = drinksArray[i].idDrink
+    populateInstructions(drinksId, i);
+  }
 });
+
+
+var populateInstructions = function (drinksId, i) {
+  var ingredients = $('.carouselInter p')
+
+  var url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinksId;
+  fetch(url).then(function (response) {
+    response.json().then(function (data) {
+      console.log(data.drinks[0].strInstructions)
+      ingredients[i].textContent = data.drinks[0].strInstructions
+
+      for (var j = 1; j <= 15; j++) {
+        var ingredient = data.drinks[0]["strIngredient" + j]
+        console.log(ingredient)
+      }
+    });
+  });
+}
 
 //Sports API call
 var sports = function (selectedSport) {

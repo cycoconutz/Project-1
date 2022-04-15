@@ -32,6 +32,7 @@ h1 {
     background-color: rgb(185, 41, 41);
 }
 
+<<<<<<< HEAD
 .topic {
     border-style: solid;
     border-width: 1px;
@@ -77,3 +78,14 @@ h1 {
     margin: 0 auto;
     border: solid 1px whitesmoke;
 }
+=======
+.carouselInter {
+    display: flex;
+}
+
+.carouselInter img {
+    height: 20em;
+
+}
+
+>>>>>>> origin/spoon
