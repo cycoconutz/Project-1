@@ -4,6 +4,9 @@ var dateEl = document.querySelector("#date");
 var timeEl = document.querySelector("#time");
 var recipes = $('.carouselInter img')
 
+
+
+console.log(recipes);
 //Sports Button Identifier
 sportsButtonsEl.addEventListener("click", function (event) {
   var selectedSport = event.target.id;
@@ -50,29 +53,13 @@ var getcocktails = function (name, type) {
 //Cocktail HTML Generator
 var populatecocktails = function (data1) {
   var drinksArray = data1.drinks;
-  console.log(drinksArray[0].strDrinkThumb)
-
-  var randomrecipe = Math.floor(Math.random() * drinksArray.length);
-
-  for (var i = 0; i > recipes.length; i++) {
-    // recipes[0].src = drinksArray[0].strDrinkThumb;
-    recipes[i].src = drinksArray[i].strDrinkThumb;
-    //   console.log(randomrecipe);
-  }
-};
-
-$("#submit-form").on("click", function (event) {
-  event.preventDefault();
-  var text = $("#search-form").val().trim();
-  var liqour = $("#typeliq option:selected").text();
-  getcocktails(text, liqour);
   console.log(drinksArray);
   for (var i = 0; i <= 3; i++) {
     recipes[i].src = drinksArray[i].strDrinkThumb;
     var drinksId = drinksArray[i].idDrink
     populateInstructions(drinksId, i);
   }
-});
+};
 
 
 var populateInstructions = function (drinksId, i) {
@@ -125,7 +112,6 @@ function populateSchedule(data) {
   timeEl.innerHTML = "";
   dateEl.innerHTML = "";
 
-
   for (i = 99; i >= 90; i--) {
     var teams = data.events[i].strEventAlternate;
     var date = data.events[i].dateEvent;
@@ -133,17 +119,14 @@ function populateSchedule(data) {
     console.log(teams);
     console.log(date);
     console.log(time);
-    var teamsChild = document.createElement("li");
-    var timeChild = document.createElement("li");
-    var dateChild = document.createElement("li");
+    var teamsChild = document.createElement("h5");
+    var timeChild = document.createElement("h5");
+    var dateChild = document.createElement("h5");
     teamsChild.textContent = teams;
-    teamsChild.classList = "border-bot list-el"
     teamsEl.appendChild(teamsChild);
     timeChild.textContent = time;
-    timeChild.classList = "border-bot list-el"
     timeEl.appendChild(timeChild);
     dateChild.textContent = date;
-    dateChild.classList = "border-bot list-el"
     dateEl.appendChild(dateChild);
   }
 }
