@@ -12,14 +12,18 @@ h1 {
     font-family: 'Babylonica', cursive;
     color: rgba(207, 179, 88, 0.87);
     font-weight: bolder;
-    font-size: 150px;
-    text-shadow: rgb(10, 10, 10) 3px 3px 3px;
+    font-size: 140px;
+    text-shadow: rgb(10, 10, 10) 4px 4px 4px;
 }
 .btn{
     background-color:rgb(26, 24, 24);
     color: rgba(207, 179, 88, 0.87)
     
 }
+
+ .form-input {
+     color: black;
+ }
 
 #index-banner {
     height: 500px;
@@ -60,10 +64,7 @@ h1 {
 .btn:hover,
 .btn-large:hover,
 .btn-small:hover {
-    background-color: #c45d5d;
-    background-color: rgba(244, 67, 54);
-    background-color: #ffffff;
-
+    background-color: rgb(185, 41, 41);
 }
 
 #sports-buttons {
