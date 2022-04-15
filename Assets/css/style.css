@@ -21,11 +21,6 @@ h1 {
     color: rgba(207, 179, 88, 0.87)
 }
 
-#typeliq {
-    color: black;
-    background-color: transparent;
-}
-
 .form-input {
     color: black;
 }
@@ -74,22 +69,6 @@ h1 {
     background-color: rgba(0, 0, 0, 0.45);
 }
 
-.btn:hover,
-.btn-large:hover,
-.btn-small:hover {
-    background-color: rgb(185, 41, 41);
-}
-
-#sports-buttons {
-    padding-top: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-
-#sports-buttons a {
-    margin: 0 auto;
-    border: solid 1px whitesmoke;
-}
 
 .btn:hover,
 .btn-large:hover,
