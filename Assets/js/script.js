@@ -64,7 +64,6 @@ var populateInstructions = function (drinksId, i) {
   var drinkname = $('.carousel h2');
   var ingredUl = document.createElement('ul');
 
-
   var url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinksId;
   fetch(url).then(function (response) {
     response.json().then(function (data) {

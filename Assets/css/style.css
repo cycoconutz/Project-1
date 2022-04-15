@@ -123,15 +123,6 @@ h1 {
     padding-bottom: 20px;
 }
 
-/* .drinkName {
-    font-size: 36px;
-    background-color: rgb(26, 24, 24);
-    color: rgba(207, 179, 88, 0.87);
-    margin-left: 225px;
-    margin-right: 225px;
-    margin-top: 10px;
-    border-radius: 50px;
-} */
 .carousel.carousel-slider .carousel-item h2 {
     font-size: 36px;
     background-color: rgb(26, 24, 24);
@@ -148,8 +139,4 @@ h1 {
     font-size: 16px;
     columns: 2;
 
-}
-
-#cock-container {
-    height: 300px;
 }
