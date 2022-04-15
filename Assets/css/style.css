@@ -59,5 +59,20 @@ h1 {
 .btn:hover,
 .btn-large:hover,
 .btn-small:hover {
+<<<<<<< HEAD
     background-color: rgba(244, 67, 54);
+=======
+    background-color: #ffffff;
+}
+
+#sports-buttons {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+}
+
+#sports-buttons a {
+    margin: 0 auto;
+    border: solid 1px whitesmoke;
+>>>>>>> 93a10b931a39aedf063bcb5627504120372ce459
 }
