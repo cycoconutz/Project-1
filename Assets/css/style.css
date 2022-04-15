@@ -59,5 +59,5 @@ h1 {
 .btn:hover,
 .btn-large:hover,
 .btn-small:hover {
-    background-color: #ffffff;
+    background-color: rgba(244, 67, 54);
 }
