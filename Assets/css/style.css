@@ -21,3 +21,12 @@ body {
     background-color:darkslategray
 }
 
+.carouselInter {
+    display: flex;
+}
+
+.carouselInter img {
+    height: 20em;
+
+}
+

@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="Testing for pull changes">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
@@ -36,7 +37,7 @@
 
         <!-- Cocktail Filter Form div 1/3   -->
         <div class="input-field col s4 block">
-            <select id="typeliq">
+            <select id='typeliq'>
                 <option value="1">Select a Liquor</option>
                 <option value="2">Whiskey</option>
                 <option value="3">Gin</option>
@@ -49,12 +50,36 @@
                 placeholder="Or enter a drink name" />
             <button type="submit" class="btn" id="submit-form">Or search for a cocktail</button>
         </div>
-        <div class="carousel col s8">
-            <h5>Carousel Placeholder</h5>
-            <!-- Placeholder Images -->
-            <a class="carousel-item" href="#one!"><img src="https://picsum.photos/200/300"></a>
-            <a class="carousel-item" href="#two!"><img src="https://picsum.photos/200/300"></a>
-            <a class="carousel-item" href="#three!"><img src="https://picsum.photos/200/300"></a>
+
+        <div id = "recipe1" class="carousel carousel-slider center col s8">
+            <div class="carousel-item red white-text" href="#one!">
+                <h2>First Panel</h2>
+                <div class="carouselInter">
+                <img  src="http://placeimg.com/640/360/any" alt="">
+                <p class="white-text">This is your first panel</p>
+              </div>
+            </div>
+            <div id = "recipe2" class="carousel-item amber white-text" href="#two!">
+                <h2>Second Panel</h2>
+                <div class="carouselInter">
+                <img id= "recipe1" src="http://placeimg.com/640/360/any" alt="">
+                <p class="white-text">This is your second panel</p>
+              </div>
+            </div>
+            <div class="carousel-item green white-text" href="#three!">
+                <h2>Third Panel</h2>
+                <div class="carouselInter">
+                <img id= "recipe" src="" alt="">
+                <p class="white-text">This is your third panel</p>
+              </div>
+            </div>
+            <div class="carousel-item blue white-text" href="#four!">
+                <h2>Fourth Panel</h2>
+                <div class="carouselInter">
+                <img id= "recipe4" src="" alt="">
+                <p class="white-text">This is your fourth panel</p>
+              </div>
+            </div>
         </div>
     </div>
     <!--Recipe Return Carousel 2/3 -->
@@ -80,15 +105,15 @@
                 <l1><a class="waves-effect waves-light btn" id='baseball-btn'><i
                             class="material-icons right">⚾</i>Baseball</a></l1>
             </div>
-            <div class="input-field col s2">
-                <h1 id="date">Date</h1>
+            <div class="input-field col s4 ">
+                <h1 id="date" class='topic'>Date</h1>
                 <div></div>
             </div>
-            <div class="input-field col s2">
-                <h1 id="time">Time</h1>
+            <div class="input-field col s4">
+                <h1 id="time" class='topic'>Time</h1>
             </div>
-            <div class="input-field col s8">
-                <h1 id="teams">Teams</h1>
+            <div class="input-field col s4">
+                <h1 id="teams" class='topic'>Teams</h1>
             </div>
         </div>
         <!-- Footer -->

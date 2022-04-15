@@ -2,58 +2,82 @@ var sportsButtonsEl = document.querySelector("#sports-buttons");
 var teamsEl = document.querySelector("#teams");
 var dateEl = document.querySelector("#date");
 var timeEl = document.querySelector("#time");
-var recipes = document.getElementsByClassName("carousel-item");
+var recipes = $('.carouselInter img')
+
+
+
+console.log(recipes);
+//Sports Button Identifier
+sportsButtonsEl.addEventListener("click", function (event) {
+  var selectedSport = event.target.id;
+  sports(selectedSport);
+});
 
 //Button listeners for sports API call
 var sportsFormSubmitHandler = function (event) {
   event.preventDefault();
-
   console.log();
-  sports(drink);
+  sports(selectedSport);
 };
 
+//Cocktail Event Listener
 $("#submit-form").on("click", function (event) {
   event.preventDefault();
-  var text = $("#search-form").val().trim();
+  var text = $("#search-form").val();
   var liqour = $("#typeliq option:selected").text();
   getcocktails(text, liqour);
 });
 
+//Cocktail API Call
 var getcocktails = function (name, type) {
   if (name === "") {
     var cocktailApi =
-      "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + type;
+      "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + type
     console.log(cocktailApi);
   }
 
   if (type === "Select a Liquor") {
     var cocktailApi =
-      "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name;
+      "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name
     console.log(cocktailApi);
   }
 
   fetch(cocktailApi).then(function (response) {
     response.json().then(function (data) {
-      console.log(data);
+      console.log(data)
       populatecocktails(data);
     });
   });
 };
 
+//Cocktail HTML Generator
 var populatecocktails = function (data1) {
   var drinksArray = data1.drinks;
-  var randomrecipe = Math.floor(Math.random() * drinksArray.length);
-  // for (var i = 0; i > recipes.length; i++) {
-    
-    recipes[0].src = drinksArray[0].strDrinkThumb;
-
-  //  recipes[i].src= drinksArray[randomrecipe].strDrinkThumb;
-
-  //   console.log(randomrecipe);
-  // }
+  console.log(drinksArray);
+  for (var i = 0; i <= 3; i++) {
+    recipes[i].src = drinksArray[i].strDrinkThumb;
+    var drinksId= drinksArray[i].idDrink
+   populateInstructions(drinksId, i);
+  }
 };
 
 
+var populateInstructions = function (drinksId, i) {
+  var ingredients = $('.carouselInter p')
+
+var url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinksId;
+fetch(url).then(function (response) {
+  response.json().then(function (data) {
+    console.log(data.drinks[0].strInstructions)
+    ingredients[i].textContent = data.drinks[0].strInstructions
+
+    for (var j = 1; j<= 15;j++){
+      var ingredient = data.drinks[0]["strIngredient"+ j]
+      console.log(ingredient)
+    }
+  });
+});
+}
 
 //Sports API call
 var sports = function (selectedSport) {
@@ -82,6 +106,7 @@ var sports = function (selectedSport) {
   });
 };
 
+//Sports HTML Generator
 function populateSchedule(data) {
   teamsEl.innerHTML = "";
   timeEl.innerHTML = "";
@@ -106,17 +131,17 @@ function populateSchedule(data) {
   }
 }
 
-sportsButtonsEl.addEventListener("click", function (event) {
-  var selectedSport = event.target.id;
-  sports(selectedSport);
-});
+
 
 //Initial functions on page load
 function init() {
   $(document).ready(function () {
     $("select").formSelect();
     $(".parallax").parallax();
-    $(".carousel").carousel();
+    $('.carousel.carousel-slider').carousel({
+      fullWidth: true,
+      indicators: true
+    });
   });
 }
 init();
