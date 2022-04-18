@@ -32,15 +32,18 @@ var getcocktails = function (name, type) {
   if (name === "") {
     var cocktailApi =
       "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + type
+    console.log(cocktailApi);
   }
 
   if (type === "Select a Liquor") {
     var cocktailApi =
       "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name
+    console.log(cocktailApi);
   }
 
   fetch(cocktailApi).then(function (response) {
     response.json().then(function (data) {
+      console.log(data)
       populatecocktails(data);
     });
   });
@@ -50,11 +53,23 @@ var getcocktails = function (name, type) {
 var populatecocktails = function (data1) {
   var drinksArray = data1.drinks;
   console.log(drinksArray);
-  for (var i = 0; i <= 2; i++) {
-    console.log(i)
-    recipes[i].src = drinksArray[i].strDrinkThumb;
-    var drinksId = drinksArray[i].idDrink
+  var randomI= Math.floor(Math.random()*drinksArray.length);
+  if (randomI > drinksArray.length -3) {
+    randomI = randomI - 3 ;
+  }
+  console.log(randomI);
+  var i = 0;
+  var easterEl = $('.easter')
+  console.log(easterEl)
+  easterEl.each(function () {
+    $(this).children('ul').remove();
+  })
+  for (var j = randomI; j <= randomI+3; j++) {
+
+    recipes[i].src = drinksArray[j].strDrinkThumb;
+    var drinksId = drinksArray[j].idDrink
     populateInstructions(drinksId, i);
+    i++
   }
 };
 
@@ -62,26 +77,34 @@ var populatecocktails = function (data1) {
 var populateInstructions = function (drinksId, i) {
   var ingredients = $('.drinkRecipe')
   var drinkname = $('.carousel h2');
+
+
   var ingredUl = document.createElement('ul');
+
 
   var url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinksId;
   fetch(url).then(function (response) {
     response.json().then(function (data) {
+      console.log(data.drinks[0].strInstructions)
+      ingredients[i].textContent = "";
       ingredients[i].textContent = data.drinks[0].strInstructions
       drinkname[i].textContent = data.drinks[0].strDrink;
       drinkname[i].insertAdjacentElement('afterend', ingredUl);
       ingredUl.setAttribute('class', 'ingredList')
+      console.log(data)
 
       for (var j = 1; j <= 15; j++) {
-        var ingredList = document.createElement('li');
         var ingredient = data.drinks[0]["strIngredient" + j]
         var measure = data.drinks[0]["strMeasure" + j];
-
+        console.log(measure)
+        console.log(ingredient)
         if (ingredient && measure) {
+          var ingredList = document.createElement('li');
           ingredList.textContent = ingredient + " " + measure;
           ingredUl.appendChild(ingredList);
         }
         if (ingredient && !measure) {
+          var ingredList = document.createElement('li');
           ingredList.textContent = ingredient;
           ingredUl.appendChild(ingredList);
         }
